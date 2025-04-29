@@ -30,7 +30,5 @@ jobs:
         run: npm test
         working-directory: .
 
-      - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@main
-        with:
-          coverage-summary-path: ./coverage/coverage-final.json
+      - name: Coverage
+        run: npm run jest-coverage
