@@ -29,3 +29,11 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: .
+
+  coverage:
+    name: Jest Coverage Report
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Jest Coverage Comment
+        uses: MishaKav/jest-coverage-comment@main
