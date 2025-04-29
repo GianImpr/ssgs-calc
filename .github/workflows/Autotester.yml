@@ -29,11 +29,3 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: .
-        
-  coverage:
-    needs: build
-    checks: write
-    runs-on: ubuntu-latest
-    steps:
-        - uses: actions/checkout@v3
-        - uses: ArtiomTr/jest-coverage-report-action@v2
