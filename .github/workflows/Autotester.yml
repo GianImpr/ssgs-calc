@@ -26,17 +26,11 @@ jobs:
       - name: Add exec flag to Jest
         run: chmod +x ./node_modules/.bin/jest
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: npm test -- --coverage
         working-directory: .
 
-  coverage:
-      needs: build
-      runs-on: ubuntu-latest
-      steps:
-        - name: Upload coverage to Codecov
-          uses: codecov/codecov-action@v3
-          with:
-            token: ${{ secrets.CODECOV_TOKEN }}
-
-            
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}  # Solo se necessario per repo privati
