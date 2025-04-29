@@ -1,4 +1,4 @@
-name: Autotester CI
+name: Autotester CI/CD
 
 on:
   push:
