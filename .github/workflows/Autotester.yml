@@ -27,10 +27,4 @@ jobs:
         run: chmod +x ./node_modules/.bin/jest
 
       - name: Run tests with coverage
-        run: npm test -- --coverage
-        working-directory: .
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}  # Solo se necessario per repo privati
+        run: npm test -- --coverage --coverageReporters=text
