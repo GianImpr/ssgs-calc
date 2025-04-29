@@ -34,15 +34,9 @@ jobs:
       needs: build
       runs-on: ubuntu-latest
       steps:
-        - name: List coverage folder contents
-          run: ls -la ./coverage || echo "La cartella coverage non esiste"
-
-        - name: List current working directory contents
-          run: ls -la .
-          
-        - name: Upload coverage reports
-          uses: actions/upload-artifact@v3
+        - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v3
           with:
-            name: coverage-report
-            path: coverage
+            token: ${{ secrets.CODECOV_TOKEN }}
+
             
