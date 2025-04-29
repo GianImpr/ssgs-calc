@@ -30,5 +30,7 @@ jobs:
         run: npm test
         working-directory: .
 
-      - name: Coverage
-        run: npm run jest-coverage
+      - name: Test Coverage
+        uses: raulanatol/jest-coverage-comment-action@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
