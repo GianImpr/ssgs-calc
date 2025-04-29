@@ -1,0 +1,31 @@
+name: Autotester CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: .
+
+      - name: Add exec flag to Jest
+        run: chmod +x ./node_modules/.bin/jest
+
+      - name: Run tests
+        run: npm test
+        working-directory: .
